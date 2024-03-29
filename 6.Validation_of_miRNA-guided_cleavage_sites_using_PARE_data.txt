@@ -1,0 +1,16 @@
+Validation of miRNA-guided cleavage_sites using PARE data
+
+Require tools:
+Jbrowse2 desktop(https://jbrowse.org/jb2/download/)
+
+Require files:
+1. Transcript.fasta and Transcript.fasta.fai (fai file can be created by samtool faidx).
+2. 5'Ends signals of PARE in bigwig format(Transcriptome.bw) in transcrtipt coordinates (produced by 4.Quantification.sh).
+
+Steps:
+1. Get alignemnt between miRNA/sRNA and target of target site by predict tool or from miRNA target database.
+2. Open JBrowse and key-in transcript id/target in search bar.
+3. Open track pannel to add bigwig file(Transcriptome.bw) and display 5'Ends signals in transcrtipt coordinates.
+4. Search sequence of target alignment by Jbrowse's function "sequence search".
+5. Check whether there is the prominent peak at the middle of the alignemnt(target site) (see protocol Fig.7).
+

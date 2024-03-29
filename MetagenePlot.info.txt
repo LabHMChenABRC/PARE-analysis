@@ -1,0 +1,4 @@
+file	plotgroup
+PARE/metagenePlot/density/WT.mrna.density	1,2
+PARE/metagenePlot/density/xrn4-6.mrna.density	1
+PARE/metagenePlot/density/fry1-6.mrna.density	2
