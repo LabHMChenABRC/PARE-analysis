@@ -1,6 +1,6 @@
 
 # GuitarPlotFast.R 
-It is used to make a metagene plot based on PARE/Degradome dataset.
+Draw a metagene plot based on PARE/Degradome dataset.
 
 ## Installation
 
@@ -8,13 +8,15 @@ Download GuitarPlotFast.R in your $HOME/bin direction which should be added to $
 ```
 wget -O ~/bin/GuitarPlotFast.R https://github.com/LabHMChenABRC/PARE-analysis/Metagene-plot/raw/main/GuitarPlotFast.R
 ```
-make GuitarPlotFast.R executable 
+Make GuitarPlotFast.R executable 
 ```
 chmod +x $CONDA_PREFIX/bin/GuitarPlotFast.R
 ```
+## Dependency
+R packages: Guitar, data.table, R.utils, ggplot2 and cowplot
+
 ## Usage
-1. Make density files:  
-Calculate the density of 20M library for less than 15 min.  
+### Make density files:
 ``` shell
 GuitarPlotFast.R -b <Directory_of_bed.gz> -g <gtf> -o <Output_folder>
 
@@ -25,21 +27,28 @@ GuitarPlotFast.R -b <Directory_of_bed.gz> -g <gtf> -o <Output_folder>
 -o <Output_folder>    program will save .mrna.density files in this direction
 ```
 
-This command will extract coding genes with 5'UTR, CDS, 3'UTR, upstream sequence, and downstream sequence lengths of at least 100bp each. And count the 5'Ends of unique alignments (MAPQ=255) on the forward strand of selected genes. The density distribution of the upstream sequence, 5'UTR, CDS, 3'UTR, and downstream sequence is scaled to 1:2:4:2:1 ratio.  
-STAR assigns unique alignments with MAPQ 255.  
-
-2. Create metagene plot:
+ This command will extract coding genes with 5'UTR, CDS, 3'UTR, upstream sequence, and downstream sequence lengths of at least 100bp each. And count the 5'Ends of unique alignments (MAPQ=255) on the forward strand of selected genes. The density distribution of the upstream sequence, 5'UTR, CDS, 3'UTR, and downstream sequence is scaled to 1:2:4:2:1 ratio.  
+ * Calculate the density of 20M library for less than 15 min.  
+ * STAR assigns unique alignments with MAPQ 255.  
+ * To reduce RAM requirements and improve performance, some functions(tail with .fast) of Guitar are modified.
+  
+### Create metagene plot:
 ``` shell
 GuitarPlotFast.R -m -p <output_file_prefix> -d <metagenePlot_info_file> -o <output_folder>
 -m                          switch to plot metagene figure
 -p <output_file_prefix>     output file prefix
--d <metagenePlot_info_file> contains a header and give density file location and they group for plot
--o <output_folder>          metagene plot is saved in pdf here.
+-d <metagenePlot_info_file> a tabular file with a header of 'file' and 'plotgroup' provide this:
+                            <Path of density file> <Group1[,Group2,...]>
+-o <output_folder>          output direction.
 ```
-The below example of <metagenePlot_info_file> will used to create a plot with group1 WT, xrn4-6 and group2 WT, fry1-6 
-| file                                 | plotgroup |
-| ------------------------------------ | --------- |
-| Path-of-density/WT.mrna.density      | 1,2       |
-| Path-of-density/xrn4-6.mrna.density  | 1         |
-| Path-of-density/fry1-6.mrna.density  | 2         |
+`GuitarPlotFast.R -m` will produces <prefix>.mRNA-metaplot.pdf in <output_folder>
+* The below example of <metagenePlot_info_file> will used to create a plot with group1 (WT, xrn4-6) and group2 (WT, fry1-6).
+
+  | file                                 | plotgroup |
+  | ------------------------------------ | --------- |
+  | Path-of-density/WT.mrna.density      | 1,2       |
+  | Path-of-density/xrn4-6.mrna.density  | 1         |
+  | Path-of-density/fry1-6.mrna.density  | 2         |
+
+<img src="https://github.com/LabHMChenABRC/PARE-analysis/assets/58059039/71238714-8b56-4bb6-93e4-d19d4ac1e0b6" width=50% height=50%>
 
