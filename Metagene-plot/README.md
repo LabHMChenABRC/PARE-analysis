@@ -35,6 +35,7 @@ GuitarPlotFast.R -b <Directory_of_bed.gz> -g <gtf> -o <Output_folder>
 ### Create metagene plot:
 ``` shell
 GuitarPlotFast.R -m -p <output_file_prefix> -d <metagenePlot_info_file> -o <output_folder>
+
 -m                          switch to plot metagene figure
 -p <output_file_prefix>     output file prefix
 -d <metagenePlot_info_file> a tabular file with a header of 'file' and 'plotgroup' provide this:
