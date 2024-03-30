@@ -13,7 +13,8 @@ make GuitarPlotFast.R executable
 chmod +x $CONDA_PREFIX/bin/GuitarPlotFast.R
 ```
 ## Usage
-1. Make density files:
+1. Make density files:  
+Calculate the density of 20M library for less than 15 min.  
 ``` shell
 GuitarPlotFast.R -b <Directory_of_bed.gz> -g <gtf> -o <Output_folder>
 
@@ -23,9 +24,9 @@ GuitarPlotFast.R -b <Directory_of_bed.gz> -g <gtf> -o <Output_folder>
                       gffread -T -o <.gtf> <.gff>
 -o <Output_folder>    program will save .mrna.density files in this direction
 ```
-This command will extract coding genes with 5'UTR, CDS, 3'UTR, upstream sequence, and downstream sequence lengths of at least 100bp each. And count the 5'Ends of unique alignments (MAPQ=255) on the forward strand of selected genes. The density distribution of the upstream sequence, 5'UTR, CDS, 3'UTR, and downstream sequence is scaled to 1:2:4:2:1 ratio.
-STAR assigns unique alignments with MAPQ 255. 
-It takes less than 15 min to calculate the density for 20M library
+
+This command will extract coding genes with 5'UTR, CDS, 3'UTR, upstream sequence, and downstream sequence lengths of at least 100bp each. And count the 5'Ends of unique alignments (MAPQ=255) on the forward strand of selected genes. The density distribution of the upstream sequence, 5'UTR, CDS, 3'UTR, and downstream sequence is scaled to 1:2:4:2:1 ratio.  
+STAR assigns unique alignments with MAPQ 255.  
 
 2. Create metagene plot:
 ``` shell
@@ -35,7 +36,7 @@ GuitarPlotFast.R -m -p <output_file_prefix> -d <metagenePlot_info_file> -o <outp
 -d <metagenePlot_info_file> contains a header and give density file location and they group for plot
 -o <output_folder>          metagene plot is saved in pdf here.
 ```
-The below example of <metagenePlot_info_file> will used to create a plot with group1 WT, MutA and group2 WT, MutB 
+The below example of <metagenePlot_info_file> will used to create a plot with group1 WT, xrn4-6 and group2 WT, fry1-6 
 | file                                 | plotgroup |
 | ------------------------------------ | --------- |
 | Path-of-density/WT.mrna.density      | 1,2       |
