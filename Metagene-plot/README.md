@@ -10,7 +10,7 @@ wget -O ~/bin/GuitarPlotFast.R https://github.com/LabHMChenABRC/PARE-analysis/Me
 ```
 Make GuitarPlotFast.R executable 
 ```
-chmod +x $CONDA_PREFIX/bin/GuitarPlotFast.R
+chmod +x ~/bin/GuitarPlotFast.R
 ```
 ## Dependency
 R packages: Guitar, data.table, R.utils, ggplot2 and cowplot
