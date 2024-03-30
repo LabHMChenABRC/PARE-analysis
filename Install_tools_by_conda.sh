@@ -28,5 +28,5 @@ conda install -c conda-forge r-ggplot2
 conda install -c conda-forge r-argparser
 
 # Download GuitarPlotFast.R for metagene plot
-wget -O $CONDA_PREFIX/bin/GuitarPlotFast.R https://github.com/LabHMChenABRC/PARE-analysis/Metagene-plot/raw/main/GuitarPlotFast.R
+wget -O $CONDA_PREFIX/bin/GuitarPlotFast.R https://raw.githubusercontent.com/LabHMChenABRC/PARE-analysis/main/Metagene-plot/GuitarPlotFast.R
 chmod +x $CONDA_PREFIX/bin/GuitarPlotFast.R
