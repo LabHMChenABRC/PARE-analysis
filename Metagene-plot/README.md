@@ -23,8 +23,9 @@ GuitarPlotFast.R -b <Directory_of_bed.gz> -g <gtf> -o <Output_folder>
                       gffread -T -o <.gtf> <.gff>
 -o <Output_folder>    program will save .mrna.density files in this direction
 ```
-This command will extract coding genes with 5'UTR, CDS, 3'UTR, upstream sequence, and downstream sequence lengths of at least 100bp each. And count the 5'Ends of uniquely alignments (MAPQ=255) on the forward strand of selected genes. The density distribution of the upstream sequence, 5'UTR, CDS, 3'UTR, and downstream sequence is scaled to 1:2:4:2:1 ratio.
+This command will extract coding genes with 5'UTR, CDS, 3'UTR, upstream sequence, and downstream sequence lengths of at least 100bp each. And count the 5'Ends of unique alignments (MAPQ=255) on the forward strand of selected genes. The density distribution of the upstream sequence, 5'UTR, CDS, 3'UTR, and downstream sequence is scaled to 1:2:4:2:1 ratio.
 STAR assigns unique alignments with MAPQ 255. 
+It takes less than 15 min to calculate the density for 20M library
 
 2. Create metagene plot:
 ``` shell
