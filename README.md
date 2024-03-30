@@ -1,6 +1,7 @@
 # PARE analysis
- Bioinformatics workflow of parallel analysis of RNA ends (PARE) sequencing
-## Require tools and install:
+ Bioinformatics workflow of parallel analysis of RNA ends (PARE) sequencing in Linux OS
+ 
+## Required tools and install:
 Run bash script `Install_tools_by_conda.sh` to build a conda environment 
 
 ## Pipelines 
