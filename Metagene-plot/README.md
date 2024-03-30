@@ -6,7 +6,7 @@ Draw a metagene plot based on PARE/Degradome dataset.
 
 Download GuitarPlotFast.R in your $HOME/bin direction which should be added to $PATH variable
 ```
-wget -O ~/bin/GuitarPlotFast.R https://github.com/LabHMChenABRC/PARE-analysis/Metagene-plot/raw/main/GuitarPlotFast.R
+wget -O ~/bin/GuitarPlotFast.R https://raw.githubusercontent.com/LabHMChenABRC/PARE-analysis/main/Metagene-plot/GuitarPlotFast.R
 ```
 Make GuitarPlotFast.R executable 
 ```
