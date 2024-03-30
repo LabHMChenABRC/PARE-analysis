@@ -1,6 +1,6 @@
 
 # GuitarPlotFast.R 
-It is used to make metagene plot based on PARE/Degradome dataset.
+It is used to make a metagene plot based on PARE/Degradome dataset.
 
 ## Installation
 
