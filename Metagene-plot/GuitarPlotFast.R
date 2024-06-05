@@ -84,7 +84,7 @@ if ( argv$metaplot == TRUE){
     })
   })
   load_mRNA_density<-function(density_info_file){
-    density_info<-fread(file = density_info_file,colClasses = c("character","character"))
+    density_info<-data.table::fread(file = density_info_file,colClasses = c("character","character"))
     if ( ! all(file.exists(density_info$file)) ){
       stop("Some density files are not exists")
     }
@@ -97,7 +97,7 @@ if ( argv$metaplot == TRUE){
         density_info[!grep(',',plotgroup)]
       )
     }
-    mRNA.density <-rbindlist(lapply(mRNA.density.files,fread),idcol = "ID"
+    mRNA.density <-rbindlist(lapply(mRNA.density.files,data.table::fread),idcol = "ID"
     )[,group:=factor(group,levels = Grouplevels)
     ][density_info[,file:=basename(file)],on="ID==file",allow.cartesian=TRUE][]
     return(mRNA.density)
@@ -538,13 +538,13 @@ if ( argv$metaplot == TRUE){
         message("input:",file.i) 
         NewFile <- sprintf("%s/%s",outdir,basename(sub(".bed.gz$",".5P.bed.gz",file.i)))
         if (!file.exists(NewFile) ){
-          Ailgnments <- data.table::fread(file.i,sep="\t",header = FALSE)
+          Ailgnments <- data.table::fread(file=file.i,sep="\t",header = FALSE)
           if( !is.null(MAPQ)) {
             Ailgnments<-Ailgnments[V5>=MAPQ] # filter by MAPQ
           }
           Ailgnments[V6=="+",V3:=V2+1]
           Ailgnments[V6=="-",V2:=V3-1]
-          data.table::fwrite(Ailgnments,file=NewFile,sep="\t",col.names=F)
+          data.table::fwrite(x=Ailgnments,file=NewFile,sep="\t",col.names=F)
           message("output:",NewFile) 
         }else{
           message(paste("Skip!","output file",NewFile, "is already existed.",sep=" ")) 
@@ -654,7 +654,7 @@ if ( argv$metaplot == TRUE){
     message(sprintf("elapsed time: %.0f sec",run.time[[ID]][[3]]))
     for (pltTxType.i in pltTxType){
       density_file=sprintf("%s/%s.%s.density",density.dir,ID,pltTxType.i)
-      fwrite(count[[pltTxType.i]]$data,file=density_file,sep="\t")
+      data.table::fwrite(x=count[[pltTxType.i]]$data,file=density_file,sep="\t")
       message( sprintf("Output density file: %s",density_file) )
     }
   }
