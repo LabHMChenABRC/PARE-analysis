@@ -1,7 +1,7 @@
 
 # GuitarPlotFast.R 
-A Linux command-line Rscript to draw a metagene plot based on the Degradome dataset.
-
+A Linux command-line Rscript to draw a metagene plot based on the Degradome dataset.<br />
+It was modified from "https://github.com/LabHMChenABRC/XRNs-DegradomeAnalysis/blob/master/GuitarPlotFast.R"
 ## Installation
 
 Download GuitarPlotFast.R in your $HOME/bin direction which should be added to the Linux PATH variable
@@ -13,7 +13,9 @@ Make GuitarPlotFast.R executable
 chmod +x ~/bin/GuitarPlotFast.R
 ```
 ## Dependency
-R packages: Guitar, data.table, R.utils, ggplot2 and cowplot
+R packages: <br />
+&emsp;CRAN: data.table, R.utils, ggplot2 and cowplot<br />
+&emsp;R/Bioconductor: Guitar<br />
 
 ## Usage
 ### Make density files:
