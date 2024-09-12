@@ -1,10 +1,10 @@
 
 # GuitarPlotFast.R 
-Draw a metagene plot based on PARE/Degradome dataset.
+A Linux command-line Rscript to draw a metagene plot based on the Degradome dataset.
 
 ## Installation
 
-Download GuitarPlotFast.R in your $HOME/bin direction which should be added to $PATH variable
+Download GuitarPlotFast.R in your $HOME/bin direction which should be added to the Linux PATH variable
 ```
 wget -O ~/bin/GuitarPlotFast.R https://raw.githubusercontent.com/LabHMChenABRC/PARE-analysis/main/Metagene-plot/GuitarPlotFast.R
 ```
@@ -43,7 +43,7 @@ GuitarPlotFast.R -m -p <output_file_prefix> -d <metagenePlot_info_file> -o <outp
 -o <output_folder>          output direction.
 ```
 `GuitarPlotFast.R -m` will produces <prefix>.mRNA-metaplot.pdf in <output_folder>
-* The below example of <metagenePlot_info_file> will used to create a plot with group1 (WT, xrn4-6) and group2 (WT, fry1-6).
+* The below example of <metagenePlot_info_file> ($${\color{red}Tab-delimited}$$ text file) will used to create a plot with group1 (WT, xrn4-6) and group2 (WT, fry1-6).
 
   | file                                 | plotgroup |
   | ------------------------------------ | --------- |
