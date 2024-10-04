@@ -29,7 +29,7 @@ GuitarPlotFast.R -b <Directory_of_bed.gz> -g <gtf> -o <Output_folder>
 -o <Output_folder>    program will save .mrna.density files in this direction
 ```
 
- This command will extract coding genes with 5'UTR, CDS, 3'UTR, upstream sequence, and downstream sequence lengths of at least 100bp each. And count the 5'Ends of unique alignments (MAPQ=255) on the forward strand of selected genes. The density distribution of the upstream sequence, 5'UTR, CDS, 3'UTR, and downstream sequence is scaled to 1:2:4:2:1 ratio.  
+ This command will extract coding genes with 5'UTR, CDS, 3'UTR, upstream sequence, and downstream sequence lengths of at least 100bp each. And count the 5'Ends of unique alignments (MAPQ=255) on the forward strand of selected genes. The upstream, 5'UTR, CDS, 3'UTR, and downstream regions are scaled to 1:2:4:2:1 ratio and draw the density distribution.
  * Calculate the density of 20M library for less than 15 min.  
  * STAR assigns unique alignments with MAPQ 255.  
  * To reduce RAM requirements and improve performance, some functions of R package Guitar are modified, and their name tail with .fast.
@@ -44,7 +44,7 @@ GuitarPlotFast.R -m -p <output_file_prefix> -d <metagenePlot_info_file> -o <outp
                             <Path of density file> <Group1[,Group2,...]>
 -o <output_folder>          output direction.
 ```
-`GuitarPlotFast.R -m` will produces <prefix>.mRNA-metaplot.pdf in <output_folder>
+`GuitarPlotFast.R -m` will produce <prefix>.mRNA-metaplot.pdf in <output_folder>
 * The below example of <metagenePlot_info_file> ($${\color{red}Tab-delimited}$$ text file) will used to create a plot with group1 (WT, xrn4-6) and group2 (WT, fry1-6).
 
   | file                                 | plotgroup |
