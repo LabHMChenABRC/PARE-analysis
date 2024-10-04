@@ -29,7 +29,7 @@ GuitarPlotFast.R -b <Directory_of_bed.gz> -g <gtf> -o <Output_folder>
 -o <Output_folder>    program will save .mrna.density files in this direction
 ```
 
- This command will extract coding genes with 5'UTR, CDS, 3'UTR, upstream sequence, and downstream sequence lengths of at least 100bp each. And count the 5'Ends of unique alignments (MAPQ=255) on the forward strand of selected genes. The upstream, 5'UTR, CDS, 3'UTR, and downstream regions are scaled to 1:2:4:2:1 ratio and draw the density distribution.
+ This command will extract coding genes with 5'UTR, CDS, 3'UTR, upstream sequence, and downstream sequence lengths of at least 100bp each. And count the 5'Ends of unique alignments (MAPQ=255) on the forward strand of selected genes. The upstream, 5'UTR, CDS, 3'UTR, and downstream regions are scaled to 1:2:4:2:1 ratio and draw the density distribution of 5'Ends.
  * Calculate the density of 20M library for less than 15 min.  
  * STAR assigns unique alignments with MAPQ 255.  
  * To reduce RAM requirements and improve performance, some functions of R package Guitar are modified, and their name tail with .fast.
