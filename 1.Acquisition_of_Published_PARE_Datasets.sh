@@ -3,9 +3,9 @@
 # Only R1 file is kept if you use this script to download paired-end dataset
 
 wd=$PWD
-Dataset=$wd/PARE.Dataset.txt
+Dataset=$wd/PARE.Dataset.txt # demo file
 # Dataset is a tab-delimited file providing this info:
-# <Accession> <SampleName>
+# <Run accession> <SampleName>
 CPU_num=16
 Output=$wd/PARE/raw
 
@@ -37,7 +37,7 @@ do
 		date +"%b %d %T ..... Library is paired-end data and only R1 of mate pair is kept"
 		seq_name_def='@$si/$ri'
 	fi
-	sleep 5 # Avoid failure caused by too fast query
+	sleep 5 # Avoid failure caused by fast query
 
 	fasterq-dump --seq-defline $seq_name_def --qual-defline '+' --threads $CPU_num --temp /dev/shm --force --progress $Run
 	# --temp          path of temp dir. This temporary directory will use approximately up to 10 times the size of the final output-file.
