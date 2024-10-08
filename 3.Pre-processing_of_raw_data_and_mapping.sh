@@ -2,7 +2,7 @@
 wd=$PWD
 Adapter=TGGAATTCTCGGGTGCCAAGG # What's 3' adapter sequence is used in libraries
 core=16
-two_color_platform=no # yes/no. Type yes if the dataset is sequencing from two-channel system
+two_color_platform=no # yes/no. Type yes if the dataset is sequencing from Illumina 2-channel chemistry system
 
 FqInDir=$wd/PARE/raw
 OutDir_trim=$wd/PARE/trimmed
