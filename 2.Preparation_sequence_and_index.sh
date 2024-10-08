@@ -27,7 +27,7 @@ tabix -p gff TAIR10_GFF3_genes.sorted.gff.gz
 # make non-coding RNA transcript sequences in fasta format (inculding rRNA, tRNA, snRNA and snoRNA)
 # 1. make transcript fasta
 gffread -w TAIR10.transcript.fasta -g $Genome_fasta $GFF_file
-# 2. Fetch transcript ID of non-coding RNA from gff file
+# 2. Fetch transcript ID of non-coding RNA from gff file and subset sequences from TAIR10.transcript.fasta
 grep -P 'rRNA\t|tRNA\t|snRNA\t|snoRNA\t' $GFF_file | \
 	gffread --stream --table @id >ncRNA.id.list
 samtools faidx --region-file ncRNA.id.list TAIR10.transcript.fasta >TAIR10.ncRNA.gff.fasta
