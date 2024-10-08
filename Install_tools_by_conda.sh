@@ -13,7 +13,7 @@ conda install -c bioconda htslib # Basic bio-tool
 conda install -c bioconda samtools # Basic bio-tool
 conda install -c bioconda entrez-direct # Download sequence from NCBI genebank
 conda install -c bioconda gffread # deal with gff/gtf files
-conda install -c bioconda cutadapt # modfied/trim NGS reads
+conda install -c bioconda cutadapt # modified/trim NGS reads
 conda install -c bioconda bowtie # short reads and non-splice aware aligner
 conda install -c bioconda star # Splice-aware aligner
 conda install -c bioconda deeptools # make bigwig file from bam/cram file using bamCoverage
