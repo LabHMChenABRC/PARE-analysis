@@ -30,13 +30,12 @@ gffread -w TAIR10.transcript.fasta -g $Genome_fasta $GFF_file
 # 2. Fetch transcript ID of non-coding RNA from gff file
 grep -P 'rRNA\t|tRNA\t|snRNA\t|snoRNA\t' $GFF_file | \
 	gffread --stream --table @id >ncRNA.id.list
-gffread --table @id TAIR10_ncRNAs.gff >ncRNA.id.list # Get ID list
 samtools faidx --region-file ncRNA.id.list TAIR10.transcript.fasta >TAIR10.ncRNA.gff.fasta
 # 3. Obtain a un-annotated rRNA fragments from NCBI
 efetch -db nucleotide -id X52320.1 -format fasta >X52320.1.rRNA.fasta
 # 4. Merge non-coding RNA sequences
 cat TAIR10.ncRNA.gff.fasta X52320.1.rRNA.fasta >TAIR10.ncRNA.fasta
-rm TAIR10_ncRNAs.gff ncRNA.id.list TAIR10.ncRNA.gff.fasta X52320.1.rRNA.fasta
+rm ncRNA.id.list TAIR10.ncRNA.gff.fasta X52320.1.rRNA.fasta
 
 # Subset mitochondria and chloroplast genomes from genome file
 echo ChrC ChrM | xargs -n 1 samtools faidx $Genome_fasta >TAIR10.chrCM.fasta
